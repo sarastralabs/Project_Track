@@ -1,0 +1,11 @@
+{
+  "name": "sarastra-hub",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Sarastra Hub monorepo — project tracking API for Sarastra Labs",
+  "packageManager": "pnpm@12.23.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {}
+}
