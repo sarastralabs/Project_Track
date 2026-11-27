@@ -23,10 +23,13 @@ function getAuthMongoClient(): MongoClient {
 function createAuth() {
   const client = getAuthMongoClient();
   const db = client.db(env.MONGODB_DB_NAME);
+  const trustedOrigins = env.WEB_ORIGIN.split(",").map((s) => s.trim()).filter(Boolean);
+
   return betterAuth({
     appName: "Sarastra Hub",
     baseURL: env.APP_URL,
     secret: env.BETTER_AUTH_SECRET,
+    trustedOrigins,
     database: mongodbAdapter(db, { client }),
     emailAndPassword: {
       enabled: true,

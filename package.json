@@ -15,6 +15,7 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "dev:api": "pnpm --filter @sarastra/api dev",
+    "dev:web": "pnpm --filter @sarastra/web dev",
     "seed": "pnpm --filter @sarastra/db seed",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

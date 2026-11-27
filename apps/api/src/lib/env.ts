@@ -8,8 +8,10 @@ import { z } from "zod";
  */
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  /** Public base URL of this API (auth callbacks, links). */
-  APP_URL: z.url().default("http://localhost:3000"),
+  /** Public URL browsers use for auth (web app origin when /api is rewritten). */
+  APP_URL: z.url().default("http://localhost:3001"),
+  /** Extra trusted web origins for Better Auth (comma-separated). */
+  WEB_ORIGIN: z.string().default("http://localhost:3001"),
   /** Mongo connection — local Docker uses host port 28018 + directConnection. */
   MONGODB_URI: z.string().min(1, "MONGODB_URI is required"),
   /** Logical database name inside Mongo. */
@@ -24,6 +26,7 @@ function loadEnv(): Env {
   const parsed = envSchema.safeParse({
     NODE_ENV: process.env.NODE_ENV,
     APP_URL: process.env.APP_URL,
+    WEB_ORIGIN: process.env.WEB_ORIGIN,
     MONGODB_URI: process.env.MONGODB_URI,
     MONGODB_DB_NAME: process.env.MONGODB_DB_NAME,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
