@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Env and secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Build / Next.js
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# Test / coverage
+coverage/
+.vitest/
+
+# Logs and debug
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local Docker / Mongo data (if ever bind-mounted outside named volumes)
+data/
+docker-data/
+
+# Misc
+*.pem
+.cache/
+tmp/
+temp/
