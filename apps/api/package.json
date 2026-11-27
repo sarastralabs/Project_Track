@@ -1,0 +1,28 @@
+{
+  "name": "@sarastra/api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sarastra/shared": "workspace:*",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@sarastra/eslint-config": "workspace:*",
+    "@sarastra/tsconfig": "workspace:*",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "16.4.6",
+    "typescript": "^5.9.3"
+  }
+}
