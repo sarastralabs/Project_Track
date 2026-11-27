@@ -1,0 +1,35 @@
+@base = http://localhost:3000
+@token = replace-with-bearer-token
+
+### List clients
+GET {{base}}/api/v1/clients
+Authorization: Bearer {{token}}
+
+### Create client
+POST {{base}}/api/v1/clients
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Demo Client",
+  "company": "Demo Co",
+  "contacts": [{ "name": "Alex", "email": "alex@demo.example", "isPrimary": true }]
+}
+
+### List projects
+GET {{base}}/api/v1/projects
+Authorization: Bearer {{token}}
+
+### Dashboard stats
+GET {{base}}/api/v1/dashboard/stats
+Authorization: Bearer {{token}}
+
+### Public lead
+POST {{base}}/api/v1/leads
+Content-Type: application/json
+
+{
+  "name": "Website Lead",
+  "email": "lead@example.com",
+  "message": "Need a company website"
+}

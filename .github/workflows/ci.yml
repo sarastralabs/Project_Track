@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev, backend-foundation]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.23.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint:root
+
+      - name: Typecheck
+        run: pnpm -r typecheck
+
+      - name: Test
+        run: pnpm --filter @sarastra/shared exec vitest run
+        env:
+          MONGODB_URI: mongodb://127.0.0.1:27017/?directConnection=true
+          MONGODB_DB_NAME: sarastra_hub_test
+          BETTER_AUTH_SECRET: ci-test-secret-at-least-32-characters-long
+          APP_URL: http://localhost:3000

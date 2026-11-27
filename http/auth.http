@@ -1,0 +1,23 @@
+### Sign up (first owner — adjust role via DB/seed afterwards if needed)
+POST http://localhost:3000/api/auth/sign-up/email
+Content-Type: application/json
+
+{
+  "name": "Sarastra Owner",
+  "email": "owner@sarastralabs.com",
+  "password": "ChangeMeNow123!"
+}
+
+### Sign in
+# @name signIn
+POST http://localhost:3000/api/auth/sign-in/email
+Content-Type: application/json
+
+{
+  "email": "owner@sarastralabs.com",
+  "password": "ChangeMeNow123!"
+}
+
+### Current user
+GET http://localhost:3000/api/v1/me
+Authorization: Bearer {{signIn.response.headers.x-set-auth-token}}

@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Transpile workspace packages that ship TypeScript source.
   transpilePackages: ["@sarastra/shared", "@sarastra/db"],
+  serverExternalPackages: ["mongoose", "mongodb", "better-auth", "@better-auth/mongo-adapter"],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

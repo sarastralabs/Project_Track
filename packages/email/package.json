@@ -1,0 +1,23 @@
+{
+  "name": "@sarastra/email",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.10"
+  },
+  "devDependencies": {
+    "@sarastra/tsconfig": "workspace:*",
+    "@types/nodemailer": "^7.0.3",
+    "typescript": "^5.9.3"
+  }
+}
