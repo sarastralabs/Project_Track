@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { LoginForm } from "@/components/login-form";
 
 export default function LoginPage() {
@@ -12,7 +14,9 @@ export default function LoginPage() {
       </section>
 
       <section className="login-panel" aria-label="Sign in">
-        <LoginForm />
+        <Suspense fallback={<div className="auth-card">Loading…</div>}>
+          <LoginForm />
+        </Suspense>
       </section>
     </main>
   );

@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 
 import { authClient } from "@/lib/auth-client";
 
 export function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("owner@sarastralabs.com");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +30,8 @@ export function LoginForm() {
       return;
     }
 
-    router.replace("/dashboard");
+    const next = searchParams.get("next");
+    router.replace(next && next.startsWith("/") ? next : "/dashboard");
     router.refresh();
   }
 
