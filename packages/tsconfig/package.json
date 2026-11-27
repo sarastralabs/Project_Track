@@ -1,0 +1,9 @@
+{
+  "name": "@sarastra/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared TypeScript configs for the Sarastra Hub monorepo",
+  "files": [
+    "*.json"
+  ]
+}
