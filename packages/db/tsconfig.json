@@ -1,0 +1,9 @@
+{
+  "extends": "@sarastra/tsconfig/library.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts"]
+}

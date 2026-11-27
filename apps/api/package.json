@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@sarastra/db": "workspace:*",
     "@sarastra/shared": "workspace:*",
     "next": "16.4.6",
     "react": "19.3.0",
